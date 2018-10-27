@@ -3,10 +3,10 @@
 
     <div class="content">
       <div class="con-big">
-        <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/11.11/1.png" alt="">
-        <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/11.11/2.png" alt="">
-        <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/11.11/3.png" alt="">
-        <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/11.11/4.png" alt="">
+        <img @click="quanCli(8)" src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/11.11/1.png" alt="">
+        <img @click="quanCli(6)" src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/11.11/2.png" alt="">
+        <img @click="quanCli(9)" src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/11.11/3.png" alt="">
+        <img @click="quanCli(7)" src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/11.11/4.png" alt="">
       </div>
     </div>
 
