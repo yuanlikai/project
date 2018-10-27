@@ -481,6 +481,119 @@
     height: 606px;
     background-size: 1920px 100%;
   }
+
+
+  @media screen and(min-width:750px) {
+
+    .alert-content {
+      position: absolute;
+      top: 0;
+      padding: 0 28px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      width: 619px;
+      height: 593px;
+      background: rgba(255, 255, 255, 1);
+      border-radius: 10px;
+    }
+
+    .alert-content-head {
+      float: left;
+      width: 225px;
+      height: 82px;
+      border-bottom: 1px solid #cc3333;
+      line-height: 82px;
+      color: #cc3333;
+      text-align: center;
+      margin-left: 197px;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .alert-content-list {
+      position: relative;
+      float: left;
+      width: 100%;
+      height: 100px;
+      color: #666666;
+      font-size: 30px;
+      border-bottom: 1px solid #E6E6E6;
+    }
+
+    .alert-content-list-head {
+      position: absolute;
+      z-index: 2;
+      color: #333;
+      top: 30px;
+      -webkit-transition: all .25s;
+      -moz-transition: all .25s;
+      -ms-transition: all .25s;
+      -o-transition: all .25s;
+      transition: all .25s;
+    }
+
+    .alert-statue {
+      top: 7px;
+      color: #CC0000;
+      font-size: 24px;
+    }
+
+    .alert-content-list-inp {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 65px;
+      line-height: 60px;
+      font-size: 28px;
+      color: #666;
+    }
+
+    .list-inpb {
+      width: 410px;
+    }
+
+    .getCode {
+      float: right;
+      margin: 26px 2px 0 0;
+      width: 148px;
+      height: 55px;
+      background: #CC0000;
+      color: #fff;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+      border: none;
+      font-size: 24px;
+    }
+
+    .submit {
+      cursor: pointer;
+      float: left;
+      width: 240px;
+      height: 64px;
+      background: #CC3333;
+      font-size: 30px;
+      color: #fff;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+      border: none;
+      margin: 40px 0 0 161px;
+    }
+
+    .alert-footer {
+      float: left;
+      width: 100%;
+      font-size: 24px;
+      color: #999999;
+      text-align: center;
+      line-height: 90px;
+    }
+  }
+
   @media screen and(max-width:750px) {
     .con-img{
       min-width: 750/@rem;
