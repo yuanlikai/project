@@ -32,7 +32,7 @@
     padding: 0;
     border: 0;
     font-size: 14px;
-    font: inherit;
+    font-family: '微软雅黑';
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

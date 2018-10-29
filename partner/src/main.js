@@ -11,7 +11,7 @@ Vue.prototype.Qs=qs;
 import axios from 'axios'
 Vue.prototype.Axios=axios;
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true;
 
 /* eslint-disable no-new */
 new Vue({
