@@ -1,22 +1,11 @@
 <template>
   <Content :style="{padding: '0 16px 16px'}">
     <Breadcrumb :style="{margin: '16px 0'}">
-      <BreadcrumbItem>经纪人/中介</BreadcrumbItem>
-      <BreadcrumbItem>楼盘管理</BreadcrumbItem>
+      <BreadcrumbItem>开发商</BreadcrumbItem>
+      <BreadcrumbItem>订单管理</BreadcrumbItem>
     </Breadcrumb>
     <Card>
       <div style="height: 600px">
-        <Row style="margin-bottom:16px">
-          <Col span="12">
-          <Button type="primary" icon="md-add">
-            添加楼盘
-          </Button>
-          </Col>
-          <Col span="12">
-          <Input style="width: 300px;float: right;" search enter-button placeholder="Enter something..."/>
-          </Col>
-        </Row>
-
         <Table :columns="columns1" :data="data1"></Table>
       </div>
     </Card>
@@ -33,23 +22,31 @@
             key: 'name'
           },
           {
+            title: '用户姓名',
+            key: 'address'
+          },
+          {
             title: '楼盘名称',
             key: 'address'
           },
           {
-            title: '楼盘地址',
+            title: '用户手机号',
             key: 'address'
           },
           {
-            title: '均价',
+            title: '订单号',
             key: 'address'
           },
           {
-            title: '装修',
+            title: '支付时间',
             key: 'address'
           },
           {
-            title: '操作',
+            title: '支付方式',
+            key: 'address'
+          },
+          {
+            title: '支付状态',
             key: 'address'
           },
         ],
@@ -63,9 +60,7 @@
         ]
       }
     },
-    methods: {},
-    mounted() {
-    }
+    methods: {}
   }
 </script>
 

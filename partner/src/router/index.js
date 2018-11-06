@@ -16,21 +16,40 @@ export default new Router({
       component: resolve => require(['@/components/Layout'], resolve),
       children: [
 
+        //开发商
+        {
+          path: '/deve/houses',
+          name: 'deveHouses',
+          component: resolve => require(['@/components/deve/houses'], resolve)
+        },
+        {
+          path: '/deve/appoin',
+          name: 'deveAppoin',
+          component: resolve => require(['@/components/deve/appoin'], resolve)
+        },
+        {
+          path: '/deve/order',
+          name: 'deveOrder',
+          component: resolve => require(['@/components/deve/order'], resolve)
+        },
+        {
+          path: '/deve/collect',
+          name: 'deveCollect',
+          component: resolve => require(['@/components/deve/collect'], resolve)
+        },
+
         // 合作伙伴
         {
-
           path: '/partner/disk',
-          name: 'disk',
+          name: 'partnerDisk',
           component: resolve => require(['@/components/partner/disk'], resolve)
         },
         {
-
           path: '/partner/look',
-          name: 'look',
+          name: 'partnerLook',
           component: resolve => require(['@/components/partner/look'], resolve)
         },
         {
-
           path: '/partner/place',
           name: 'place',
           component: resolve => require(['@/components/partner/place'], resolve)
@@ -39,29 +58,29 @@ export default new Router({
         //经纪人/中介
         {
           path: '/broker/houses',
-          name: 'houses',
+          name: 'brokerHouses',
           component: resolve => require(['@/components/broker/houses'], resolve)
         },
         {
           path: '/broker/appoin',
-          name: 'appoin',
+          name: 'brokerAppoin',
           component: resolve => require(['@/components/broker/appoin'], resolve)
         },
         {
           path: '/broker/collect',
-          name: 'collect',
+          name: 'brokerCollect',
           component: resolve => require(['@/components/broker/collect'], resolve)
         },
 
         //报备
         {
           path: '/report/disk',
-          name: 'disk',
+          name: 'reportDisk',
           component: resolve => require(['@/components/report/disk'], resolve)
         },
         {
           path: '/report/look',
-          name: 'look',
+          name: 'reportLook',
           component: resolve => require(['@/components/report/look'], resolve)
         }
 

@@ -1,7 +1,7 @@
 <template>
   <Content :style="{padding: '0 16px 16px'}">
     <Breadcrumb :style="{margin: '16px 0'}">
-      <BreadcrumbItem>经纪人/中介</BreadcrumbItem>
+      <BreadcrumbItem>开发商</BreadcrumbItem>
       <BreadcrumbItem>楼盘管理</BreadcrumbItem>
     </Breadcrumb>
     <Card>
@@ -13,10 +13,9 @@
           </Button>
           </Col>
           <Col span="12">
-          <Input style="width: 300px;float: right;" search enter-button placeholder="Enter something..."/>
+            <Input style="width: 300px;float: right;" search enter-button placeholder="Enter something..." />
           </Col>
         </Row>
-
         <Table :columns="columns1" :data="data1"></Table>
       </div>
     </Card>
@@ -24,6 +23,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+
   export default {
     data() {
       return {
@@ -63,8 +63,10 @@
         ]
       }
     },
-    methods: {},
-    mounted() {
+    methods: {
+
+    },
+    mounted(){
     }
   }
 </script>

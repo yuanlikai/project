@@ -68,13 +68,29 @@
   export default {
     data() {
       return {
-        ctive: sessionStorage.getItem('meu')
+        ctive: sessionStorage.getItem('meu')?sessionStorage.getItem('meu'):'2-1'
       }
     },
     methods: {
       sect(i) {
         let v = this;
         switch (i) {
+          case '1-1':
+            sessionStorage.setItem('meu', i);
+            v.$router.push('/deve/houses');
+            break;
+          case '1-2':
+            sessionStorage.setItem('meu', i);
+            v.$router.push('/deve/appoin');
+            break;
+          case '1-3':
+            sessionStorage.setItem('meu', i);
+            v.$router.push('/deve/order');
+            break;
+          case '1-4':
+            sessionStorage.setItem('meu', i);
+            v.$router.push('/deve/collect');
+            break;
 
           case '2-1':
             sessionStorage.setItem('meu', i);
@@ -116,6 +132,5 @@
     mounted() {
 
     }
-
   }
 </script>

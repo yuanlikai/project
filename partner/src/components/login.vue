@@ -11,19 +11,19 @@
         <span class="line"></span>
 
         <!--密码登陆-->
-        <div class="fixed-center-inp" style="display: none;">
+        <div class="fixed-center-inp">
           <div class="center-inp-con center-inp-cona">
             <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/user.png" alt="">
-            <input class="inp-con-y" type="text" placeholder="请输入用户名">
+            <input v-model="user.username" class="inp-con-y" type="text" placeholder="请输入用户名">
           </div>
           <div class="center-inp-con">
             <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/pass.png" alt="">
-            <input class="inp-con-y" type="password" placeholder="请输入密码">
+            <input v-model="user.password" class="inp-con-y" type="password" placeholder="请输入密码">
           </div>
         </div>
 
         <!--手机登录-->
-        <div class="fixed-center-inp">
+        <div class="fixed-center-inp" style="display: none;">
           <div class="center-inp-con center-inp-cona">
             <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/phone.png" alt="">
             <input class="inp-con-y" maxlength="11" type="text" placeholder="请输入手机号">
@@ -41,7 +41,7 @@
           <a href="" class="forget-password">忘记密码？</a>
         </form>
 
-        <button class="content-login">登 录</button>
+        <button class="content-login" @click="login">登 录</button>
         <p class="content-footer">没有账号？立即<a href="" style="color:#B81314">注册</a>！</p>
 
       </div>
@@ -53,9 +53,30 @@
   export default {
     name: 'home',
     data() {
-      return {}
+      return {
+        user:{
+          username:'',
+          password:''
+        }
+      }
     },
-    methods: {},
+    methods: {
+      login(){
+        let v = this;
+        v.Axios.post('/partner/login/login',v.Qs.stringify({
+          name:v.user.username,
+          pwd:v.user.password
+        })).then((res,req)=>{
+          if(res.data.error===0){
+            v.$router.push({
+              name:'deveHouses',
+            })
+          }else {
+            alert(res.data.errMsg)
+          }
+        })
+      }
+    },
     mounted() {
 
     }
