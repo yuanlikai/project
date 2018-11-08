@@ -11,7 +11,7 @@
       </div>
 
       <!--分页-->
-      <PagIng :page="total" @cut="cut"/>
+      <PagIng :page="total" @cut="cut" ref="pag"/>
     </Card>
   </Content>
 </template>

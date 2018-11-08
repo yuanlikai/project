@@ -16,7 +16,6 @@
     methods: {
       //切换页码回调
       cut(i){
-        this.b=2;
         this.$emit('cut',i)
       }
     }
