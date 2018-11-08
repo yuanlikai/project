@@ -70,4 +70,11 @@
   input {
     outline: none;
   }
+
+  .page-list{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin:35px 0 0 0
+  }
 </style>

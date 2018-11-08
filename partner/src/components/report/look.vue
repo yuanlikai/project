@@ -5,69 +5,129 @@
       <BreadcrumbItem>带看报备</BreadcrumbItem>
     </Breadcrumb>
     <Card>
-      <div style="height: 600px">
+      <div style="height: 570px">
         <Table :columns="columns1" :data="data1"></Table>
+        <Spin size="large" fix v-if="spinShow"></Spin>
       </div>
+
+      <!--分页-->
+      <PagIng :page="total" @cut="cut" />
     </Card>
   </Content>
 </template>
 
 <script type="text/ecmascript-6">
+  import PagIng from '../public/paging'
   export default {
+    components:{
+      PagIng
+    },
     data() {
       return {
+        spinShow:false,
+        total:1,
         columns1: [
           {
             title: 'id',
-            key: 'name'
+            align:'center',
+            width: 80,
+            key: 'put_id'
           },
           {
             title: '楼盘名称',
-            key: 'address'
+            align:'center',
+            key: 'hou_name'
           },
           {
             title: '报备时间',
-            key: 'address'
+            align:'center',
+            key: 'addtime'
           },
           {
             title: '报备手机号',
-            key: 'address'
+            align:'center',
+            key: 'user_mobile'
           },
           {
             title: '公司/分行',
-            key: 'address'
+            align:'center',
+            render: (h, params) => {
+              return h('p', `${params.row.put_firm} / ${params.row.put_branch}`)
+            }
           },
           {
             title: '对接人/手机',
-            key: 'address'
+            align:'center',
+            key: 'put_mobile/put_butt',
+            render: (h, params) => {
+              return h('p', `${params.row.put_mobile} / ${params.row.put_butt}`)
+            }
           },
           {
             title: '客户/手机号',
-            key: 'address'
+            align:'center',
+            key: 'username/usermobile',
+            render: (h, params) => {
+              return h('p', `${params.row.username} / ${params.row.usermobile}`)
+            }
           },
           {
             title: '看房人数/时间',
-            key: 'address'
+            align:'center',
+            key: 'put_num/put_seetime',
+            render: (h, params) => {
+              return h('p', `${params.row.put_num} / ${params.row.put_seetime}`)
+            }
           },
           {
             title: '操作',
-            key: 'address'
+            align: 'center',
+            width: 80,
+            key: 'address',
+            render: (h, params) => {
+              return h('p', {
+                style: {
+                  color: '#B81314',
+                  cursor: 'pointer'
+                }
+              }, '删除')
+            }
           },
         ],
-        data1: [
-          {
-            name: 'John Brown',
-            age: 18,
-            address: 'New York No. 1 Lake Park',
-            date: '2016-10-03'
-          }
-        ]
+        data1: []
       }
     },
-    methods: {}
+    methods: {
+      //切换页码
+      cut(i){
+        this.lookList(i)
+      },
+
+      //带看报备列表
+      lookList(i) {
+        let v = this;
+        v.spinShow=!v.spinShow
+        v.Axios.post('/partner/agent/myreport', v.Qs.stringify({
+          type: 1,
+          num: 11,
+          page: i
+        })).then(res => {
+          if (res.data.error === 0) {
+            v.total=res.data.data.nodes;
+            v.data1 = res.data.data.info
+          } else {
+            v.$Message.error(res.data.errMsg)
+          }
+          v.spinShow=!v.spinShow
+        })
+      }
+    },
+    mounted() {
+      this.lookList(1)
+    }
   }
 </script>
 
-<style lang="less">
+<style scoped lang="less">
 
 </style>

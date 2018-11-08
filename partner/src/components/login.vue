@@ -4,14 +4,24 @@
       <div class="fixed-center">
 
         <div class="fixed-center-cut">
-          <p class="cut-login cut-logina">密码登录</p>
-          <p class="cut-login cut-loginb">手机登录</p>
+          <p @click="states=true" :class="{
+             'cut-login':true,
+             'cut-logina':true,
+             'cut-states':states
+          }">密码登录</p>
+          <p @click="states=false" :class="{
+             'cut-login':true,
+             'cut-loginb':true,
+             'cut-states':!states
+          }">手机登录</p>
         </div>
 
-        <span class="line"></span>
+        <span :style="{
+            marginLeft:states===true?'45px':'303px'
+        }" class="line"></span>
 
         <!--密码登陆-->
-        <div class="fixed-center-inp">
+        <div v-show="states" class="fixed-center-inp">
           <div class="center-inp-con center-inp-cona">
             <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/user.png" alt="">
             <input v-model="user.username" class="inp-con-y" type="text" placeholder="请输入用户名">
@@ -23,20 +33,23 @@
         </div>
 
         <!--手机登录-->
-        <div class="fixed-center-inp" style="display: none;">
+        <div v-show="!states" class="fixed-center-inp" style="display: none;">
           <div class="center-inp-con center-inp-cona">
             <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/phone.png" alt="">
-            <input class="inp-con-y" maxlength="11" type="text" placeholder="请输入手机号">
+            <input v-model="user.mobile" class="inp-con-y" maxlength="11" type="text" placeholder="请输入手机号">
           </div>
           <div class="center-inp-con">
             <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/pass.png" alt="">
-            <input class="inp-con-y" maxlength="4" type="password" placeholder="请输入验证码">
+            <input v-model="user.code" class="inp-con-y inp-con-tree" maxlength="4" type="password"
+                   placeholder="请输入验证码">
+            <span class="inp-getCode" @click="getCode" v-show="codeStater">获取验证码</span>
+            <span class="inp-getCode" style="margin-right: 40px" v-show="!codeStater">{{authCode}}</span>
           </div>
         </div>
 
-        <form action="" class="center-remember">
+        <form v-show="states" action="" class="center-remember">
           <label>
-            <input type="checkbox" class="center-remember-checkbox"> 记住密码
+            <input type="checkbox" checked="checked" class="center-remember-checkbox"> 记住密码
           </label>
           <a href="" class="forget-password">忘记密码？</a>
         </form>
@@ -54,28 +67,76 @@
     name: 'home',
     data() {
       return {
-        user:{
-          username:'',
-          password:''
+        authCode: '60s',
+        codeStater: true,
+        states: true,
+        user: {
+          username: '',
+          password: '',
+          mobile: '',
+          code: ''
         }
       }
     },
     methods: {
-      login(){
+
+      //登录
+      login() {
         let v = this;
-        v.Axios.post('/partner/login/login',v.Qs.stringify({
-          name:v.user.username,
-          pwd:v.user.password
-        })).then((res,req)=>{
-          if(res.data.error===0){
-            v.$router.push({
-              name:'deveHouses',
-            })
-          }else {
-            alert(res.data.errMsg)
+        if (v.states === true) {//账号密码登录
+          v.Axios.post('/partner/login/login', v.Qs.stringify({
+            name: v.user.username,
+            pwd: v.user.password
+          })).then(res => {
+            if (res.data.error === 0) {
+              v.$router.push({
+                name: 'deveHouses',
+              });
+              sessionStorage.setItem('meu', '1-1')
+            } else {
+              alert(res.data.errMsg)
+            }
+          })
+        } else {//手机验证码登录
+          v.Axios.post('/partner/login/quick', v.Qs.stringify({
+            mobile: v.user.mobile,
+            code: v.user.code
+          })).then(res => {
+            if (res.data.error === 0) {
+              v.$router.push({
+                name: 'deveHouses',
+              });
+              sessionStorage.setItem('meu', '1-1')
+            } else {
+              v.$Message.error(res.data.errMsg)
+            }
+          })
+        }
+      },
+
+      //获取验证码
+      getCode() {
+        let v = this;
+
+        let time = 60;
+        v.codeStater = false;
+        let djs = setInterval(() => {
+          time--;
+          if (time !== 0) {
+            v.authCode = `${time}s`
+          } else {
+            clearInterval(djs);
+            v.authCode = '60s';
+            v.codeStater = true;
           }
+        }, 1000)
+
+        v.Axios.post('/partner/login/mobile', v.Qs.stringify({
+          mobile: v.user.mobile
+        })).then((res, req) => {
         })
       }
+
     },
     mounted() {
 
@@ -126,8 +187,11 @@
 
   .cut-logina {
     float: left;
-    color: #B81314;
+    /*color: #B81314;*/
+  }
 
+  .cut-states {
+    color: #B81314;
   }
 
   .cut-loginb {
@@ -142,6 +206,11 @@
     background: rgba(184, 19, 20, 1);
     border-radius: 2px;
     margin-left: 45px;
+    -webkit-transition: all .25s;
+    -moz-transition: all .25s;
+    -ms-transition: all .25s;
+    -o-transition: all .25s;
+    transition: all .25s;
   }
 
   .fixed-center-inp {
@@ -187,24 +256,38 @@
     height: 22px;
   }
 
+  .inp-con-tree {
+    width: 260px;
+  }
+
+  .inp-getCode {
+    float: right;
+    font-size: 16px;
+    color: rgba(184, 19, 20, 1);
+    line-height: 52px;
+    cursor: pointer;
+    margin-right: 14px;
+  }
+
   .forget-password {
     float: right;
     color: #999;
   }
 
-  .content-login{
+  .content-login {
     float: left;
     margin-top: 50px;
     cursor: pointer;
     width: 100%;
-    height:52px;
+    height: 52px;
     font-size: 18px;
     color: #FFFFFF;
     font-family: '微软雅黑';
-    border:none;
-    background:rgba(184,19,20,1);
+    border: none;
+    background: rgba(184, 19, 20, 1);
   }
-  .content-footer{
+
+  .content-footer {
     float: left;
     width: 100%;
     text-align: center;

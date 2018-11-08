@@ -5,8 +5,11 @@
       <BreadcrumbItem>预约管理</BreadcrumbItem>
     </Breadcrumb>
     <Card>
-      <div style="height: 600px">
+      <div style="height: 570px">
         <Table :columns="columns1" :data="data1"></Table>
+      </div>
+      <div class="page-list">
+        <Page :total="100" />
       </div>
     </Card>
   </Content>
@@ -19,44 +22,54 @@
         columns1: [
           {
             title: 'id',
-            key: 'name'
+            key: 'book_id'
           },
           {
             title: '用户姓名',
-            key: 'address'
+            key: 'book_nick'
+          },
+          {
+            title: '用户电话',
+            key: 'book_mobile'
           },
           {
             title: '楼盘名称',
-            key: 'address'
+            key: 'book_name'
           },
           {
-            title: '预约时间',
-            key: 'address'
-          },
-          {
-            title: '预约人 / 电话',
-            key: 'address'
-          },
-          {
-            title: '负责人 / 电话',
-            key: 'address'
+            title: '负责人电话',
+            key: 'mobile'
           },
           {
             title: '添加时间',
-            key: 'address'
+            align:'center',
+            key: 'addtime',
+            render:(h,params)=>{
+              return h('p',this.getLocalTime(params.row.addtime))
+            }
           },
         ],
-        data1: [
-          {
-            name: 'John Brown',
-            age: 18,
-            address: 'New York No. 1 Lake Park',
-            date: '2016-10-03'
-          }
-        ]
+        data1: []
       }
     },
-    methods: {}
+    methods: {
+      appoinList(){
+        let v = this;
+        v.Axios.post('/index.php/partner/agent/appointment',v.Qs.stringify({
+          num:11,
+          page:1,
+        })).then(res=>{
+          if (res.data.error === 0) {
+            this.data1 = res.data.data.info
+          } else {
+            v.$Message.error(res.data.errMsg)
+          }
+        })
+      }
+    },
+    mounted(){
+      this.appoinList();
+    }
   }
 </script>
 

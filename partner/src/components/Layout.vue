@@ -68,7 +68,7 @@
   export default {
     data() {
       return {
-        ctive: sessionStorage.getItem('meu')?sessionStorage.getItem('meu'):'2-1'
+        ctive: sessionStorage.getItem('meu')
       }
     },
     methods: {
