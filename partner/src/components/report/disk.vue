@@ -97,14 +97,7 @@
             }
           },
         ],
-        data1: [
-          {
-            name: 'John Brown',
-            age: 18,
-            address: 'New York No. 1 Lake Park',
-            date: '2016-10-03'
-          }
-        ]
+        data1: []
       }
     },
     methods: {
