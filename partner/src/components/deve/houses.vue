@@ -17,21 +17,28 @@
           </Col>
         </Row>
         <Table :columns="columns1" :data="data1"></Table>
+        <Spin size="large" fix v-if="spinShow"></Spin>
       </div>
-      <div class="page-list">
-        <Page :total="100" />
-      </div>
+      <!--分页-->
+      <PagIng :page="total" @cut="cut" />
     </Card>
   </Content>
 </template>
 
 <script type="text/ecmascript-6">
+  import PagIng from '../public/paging'
   export default {
+    components:{
+      PagIng
+    },
     data() {
       return {
+        spinShow:false,
+        total:1,
         columns1: [
           {
             title: 'id',
+            align:'center',
             key: 'hou_id',
           },
           {
@@ -44,11 +51,8 @@
           },
           {
             title: '均价(元/m²)',
+            align:'center',
             key: 'hou_pirce'
-          },
-          {
-            title: '装修',
-            key: 'hou_br'
           },
           {
             title: '操作',
@@ -91,25 +95,32 @@
       }
     },
     methods: {
+      //切换页码
+      cut(i){
+        this.housesList(i)
+      },
 
       //楼盘列表
-      housesList() {
+      housesList(i) {
         let v = this;
+        v.spinShow=!v.spinShow
         v.Axios.post('/index.php/partner/hou/index', v.Qs.stringify({
           num: 10,
-          page: 1,
+          page: i,
         })).then(res => {
           if (res.data.error === 0) {
-            this.data1 = res.data.data.info
+            v.total=res.data.data.nodes;
+            v.data1 = res.data.data.info
           } else {
             v.$Message.error(res.data.errMsg)
           }
+          v.spinShow=!v.spinShow
         })
       }
 
     },
     mounted() {
-      this.housesList();
+      this.housesList(1);
     }
   }
 </script>

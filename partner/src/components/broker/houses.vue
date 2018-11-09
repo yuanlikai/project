@@ -16,55 +16,111 @@
           <Input style="width: 300px;float: right;" search enter-button placeholder="Enter something..."/>
           </Col>
         </Row>
-
         <Table :columns="columns1" :data="data1"></Table>
+        <Spin size="large" fix v-if="spinShow"></Spin>
       </div>
+      <!--分页-->
+      <PagIng :page="total" @cut="cut" />
     </Card>
   </Content>
 </template>
 
 <script type="text/ecmascript-6">
+  import PagIng from '../public/paging'
   export default {
+    components:{
+      PagIng
+    },
     data() {
       return {
+        spinShow:false,
+        total:1,
         columns1: [
           {
             title: 'id',
-            key: 'name'
+            align:'center',
+            key: 'agent_id'
           },
           {
             title: '楼盘名称',
-            key: 'address'
+            key: 'agent_names'
           },
           {
             title: '楼盘地址',
-            key: 'address'
+            key: 'agent_address'
           },
           {
-            title: '均价',
-            key: 'address'
-          },
-          {
-            title: '装修',
-            key: 'address'
-          },
-          {
+            title: '均价(元/m²)',
+            align:'center',
+            key: 'agent_pirce'
+          },{
             title: '操作',
-            key: 'address'
+            align:'center',
+            key: 'address',
+            render:(h,params)=>{
+              return h('div',{
+                style:{
+                  cursor:'pointer'
+                }
+              },[
+                h('span',{
+                  style:{
+                    color:'#37C57B',
+                    marginRight:'10px',
+                  }
+                },'优惠'),
+                h('span',{
+                  style:{
+                    color:'#3590F1',
+                    marginRight:'10px',
+                  }
+                },'详情'),
+                h('span',{
+                  style:{
+                    color:'#FFAD36',
+                    marginRight:'10px',
+                  }
+                },'户型'),
+                h('span',{
+                  style:{
+                    color:'#F16646',
+                  }
+                },'删除')
+              ])
+            }
           },
         ],
-        data1: [
-          {
-            name: 'John Brown',
-            age: 18,
-            address: 'New York No. 1 Lake Park',
-            date: '2016-10-03'
-          }
-        ]
+        data1: []
       }
     },
-    methods: {},
+    methods: {
+      //切换页码
+      cut(i){
+        this.housesList(i)
+      },
+
+      //中介楼盘列表
+      housesList(i){
+        let v = this;
+        v.spinShow=!v.spinShow
+        v.Axios.post('/partner/agent/houses',v.Qs.stringify({
+          num:10,
+          page:i
+        })).then(res=>{
+          console.log(res.data)
+          if (res.data.error === 0) {
+            console.log(1)
+            v.total=res.data.data.nodes;
+            v.data1 = res.data.data.info
+          } else {
+            v.$Message.error(res.data.errMsg)
+          }
+          v.spinShow=!v.spinShow
+        })
+      }
+    },
     mounted() {
+      this.housesList(1)
     }
   }
 </script>

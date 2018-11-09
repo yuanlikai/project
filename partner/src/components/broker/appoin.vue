@@ -5,58 +5,90 @@
       <BreadcrumbItem>预约管理</BreadcrumbItem>
     </Breadcrumb>
     <Card>
-      <div style="height: 600px">
+      <div style="height: 570px">
         <Table :columns="columns1" :data="data1"></Table>
+        <Spin size="large" fix v-if="spinShow"></Spin>
       </div>
+      <!--分页-->
+      <PagIng :page="total" @cut="cut" />
     </Card>
   </Content>
 </template>
 
 <script type="text/ecmascript-6">
+  import PagIng from '../public/paging'
   export default {
+    components:{
+      PagIng
+    },
     data() {
       return {
+        spinShow:false,
+        total:1,
         columns1: [
           {
             title: 'id',
-            key: 'name'
+            width:80,
+            align:'center',
+            key: 'book_id'
           },
           {
-            title: '用户姓名',
-            key: 'address'
+            title: '预约人',
+            key: 'book_nick'
+          },
+          {
+            title: '电话',
+            key: 'book_mobile'
           },
           {
             title: '楼盘名称',
-            key: 'address'
+            key: 'book_name'
           },
           {
-            title: '预约时间',
-            key: 'address'
-          },
-          {
-            title: '预约人 / 电话',
-            key: 'address'
-          },
-          {
-            title: '负责人 / 电话',
-            key: 'address'
+            title: '负责人电话',
+            key: 'mobile'
           },
           {
             title: '添加时间',
-            key: 'address'
+            align:'center',
+            key: 'addtime',
+            render:(h,params)=>{
+              return h('p',this.getLocalTime(params.row.addtime))
+            }
           },
         ],
-        data1: [
-          {
-            name: 'John Brown',
-            age: 18,
-            address: 'New York No. 1 Lake Park',
-            date: '2016-10-03'
-          }
-        ]
+        data1: []
       }
     },
-    methods: {}
+    methods: {
+      //切换页码
+      cut(i){
+        this.appionList(i)
+      },
+
+      //中介预约列表
+      appionList(){
+        let v = this;
+        v.spinShow=!v.spinShow
+        v.Axios.post('/partner/agent/appointment',v.Qs.stringify({
+          num:11,
+          page:1
+        })).then(res=>{
+          if (res.data.error === 0) {
+            v.total=res.data.data.nodes;
+            v.data1 = res.data.data.info
+          } else {
+            v.$Message.error(res.data.errMsg)
+          }
+          v.spinShow=!v.spinShow
+        })
+      }
+
+    },
+    mounted(){
+      this.appionList()
+
+    }
   }
 </script>
 

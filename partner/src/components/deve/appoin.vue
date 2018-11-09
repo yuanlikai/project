@@ -7,18 +7,24 @@
     <Card>
       <div style="height: 570px">
         <Table :columns="columns1" :data="data1"></Table>
+        <Spin size="large" fix v-if="spinShow"></Spin>
       </div>
-      <div class="page-list">
-        <Page :total="100" />
-      </div>
+      <!--分页-->
+      <PagIng :page="total" @cut="cut" />
     </Card>
   </Content>
 </template>
 
 <script type="text/ecmascript-6">
+  import PagIng from '../public/paging'
   export default {
+    components:{
+      PagIng
+    },
     data() {
       return {
+        spinShow:false,
+        total:1,
         columns1: [
           {
             title: 'id',
@@ -53,22 +59,30 @@
       }
     },
     methods: {
-      appoinList(){
+      //切换页码
+      cut(i){
+        this.appoinList(i)
+      },
+
+      appoinList(i){
         let v = this;
+        v.spinShow=!v.spinShow
         v.Axios.post('/index.php/partner/agent/appointment',v.Qs.stringify({
           num:11,
-          page:1,
+          page:i,
         })).then(res=>{
           if (res.data.error === 0) {
-            this.data1 = res.data.data.info
+            v.total=res.data.data.nodes;
+            v.data1 = res.data.data.info
           } else {
             v.$Message.error(res.data.errMsg)
           }
+          v.spinShow=!v.spinShow
         })
       }
     },
     mounted(){
-      this.appoinList();
+      this.appoinList(1);
     }
   }
 </script>
