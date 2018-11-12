@@ -19,20 +19,30 @@
         <Table :columns="columns1" :data="data1"></Table>
         <Spin size="large" fix v-if="spinShow"></Spin>
       </div>
+
       <!--分页-->
       <PagIng :page="total" @cut="cut" />
+
+      <!--删除弹窗-->
+      <alertDel ref="del" :delContent="delContent" @List="housesList" @delA="del" />
     </Card>
   </Content>
 </template>
 
 <script type="text/ecmascript-6">
   import PagIng from '../public/paging'
+  import alertDel from '../public/aletDel'
   export default {
     components:{
-      PagIng
+      PagIng,
+      alertDel
     },
     data() {
       return {
+        delContent:{ //删除
+          url:'/index.php/partner/hou/del',
+          id:''
+        },
         spinShow:false,
         total:1,
         columns1: [
@@ -85,6 +95,12 @@
                 h('span',{
                   style:{
                     color:'#F16646',
+                  },
+                  on: {
+                    click: (i) => {
+                      this.delContent.id=params.row.hou_id;
+                      this.$refs.del.modal2 = true
+                    }
                   }
                 },'删除')
               ])
@@ -95,6 +111,11 @@
       }
     },
     methods: {
+      //删除
+      del(q){
+        this.total=q
+      },
+
       //切换页码
       cut(i){
         this.housesList(i)

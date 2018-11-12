@@ -81,21 +81,7 @@
               params.row.put_status === 0 ? sta = '自驾' : sta = '班车';
               return h('p', sta)
             }
-          },
-          {
-            title: '操作',
-            align: 'center',
-            width: 80,
-            key: 'address',
-            render: (h, params) => {
-              return h('p', {
-                style: {
-                  color: '#B81314',
-                  cursor: 'pointer'
-                }
-              }, '删除')
-            }
-          },
+          }
         ],
         data1: []
       }

@@ -106,6 +106,7 @@
               v.$router.push({
                 name: 'deveHouses',
               });
+              v.$Message.success('登录成功');
               sessionStorage.setItem('meu', '1-1')
             } else {
               v.$Message.error(res.data.errMsg)

@@ -1,6 +1,6 @@
 <template>
   <div class="page-list">
-    <Page :total="page" @on-change="cut" />
+    <Page :total="page" :page-size="10" @on-change="cut" />
   </div>
 </template>
 
@@ -18,6 +18,9 @@
       cut(i){
         this.$emit('cut',i)
       }
+    },
+    mounted(){
+
     }
   }
 </script>

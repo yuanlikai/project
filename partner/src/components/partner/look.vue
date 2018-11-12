@@ -78,21 +78,7 @@
             render: (h, params) => {
               return h('p', `${params.row.put_num} / ${params.row.put_seetime}`)
             }
-          },
-          {
-            title: '操作',
-            align: 'center',
-            width: 80,
-            key: 'address',
-            render: (h, params) => {
-              return h('p', {
-                style: {
-                  color: '#B81314',
-                  cursor: 'pointer'
-                }
-              }, '删除')
-            }
-          },
+          }
         ],
         data1: []
       }

@@ -5,7 +5,7 @@
       <BreadcrumbItem>楼盘管理</BreadcrumbItem>
     </Breadcrumb>
     <Card>
-      <div style="height: 600px">
+      <div style="height: 570px">
         <Row style="margin-bottom:16px">
           <Col span="12">
           <Button type="primary" icon="md-add">
@@ -21,18 +21,27 @@
       </div>
       <!--分页-->
       <PagIng :page="total" @cut="cut" />
+
+      <!--删除弹窗-->
+      <alertDel ref="del" :delContent="delContent" @List="housesList" @delA="del" />
     </Card>
   </Content>
 </template>
 
 <script type="text/ecmascript-6">
   import PagIng from '../public/paging'
+  import alertDel from '../public/aletDel'
   export default {
     components:{
-      PagIng
+      PagIng,
+      alertDel
     },
     data() {
       return {
+        delContent:{ //删除
+          url:'/partner/agent/housesdel',
+          id:''
+        },
         spinShow:false,
         total:1,
         columns1: [
@@ -84,6 +93,12 @@
                 h('span',{
                   style:{
                     color:'#F16646',
+                  },
+                  on: {
+                    click: (i) => {
+                      this.delContent.id=params.row.agent_id;
+                      this.$refs.del.modal2 = true
+                    }
                   }
                 },'删除')
               ])
@@ -94,6 +109,11 @@
       }
     },
     methods: {
+      //删除
+      del(q){
+        this.total=q
+      },
+
       //切换页码
       cut(i){
         this.housesList(i)
