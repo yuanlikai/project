@@ -31,14 +31,14 @@
           <MenuItem name="1-3">订单管理</MenuItem>
           <MenuItem name="1-4">收藏管理</MenuItem>
         </Submenu>
-        <Submenu name="2">
-          <template slot="title">
-            合作伙伴
-          </template>
-          <MenuItem name="2-1">踩盘报备</MenuItem>
-          <MenuItem name="2-2">带看报备</MenuItem>
-          <MenuItem name="2-3">管理分销</MenuItem>
-        </Submenu>
+        <!--<Submenu name="2">-->
+          <!--<template slot="title">-->
+            <!--合作伙伴-->
+          <!--</template>-->
+          <!--<MenuItem name="2-1">踩盘报备</MenuItem>-->
+          <!--<MenuItem name="2-2">带看报备</MenuItem>-->
+          <!--<MenuItem name="2-3">管理分销</MenuItem>-->
+        <!--</Submenu>-->
         <Submenu name="3">
           <template slot="title">
             经纪人/中介
@@ -47,13 +47,13 @@
           <MenuItem name="3-2">预约管理</MenuItem>
           <MenuItem name="3-3">收藏管理</MenuItem>
         </Submenu>
-        <Submenu name="4">
-          <template slot="title">
-            报备
-          </template>
-          <MenuItem name="4-1">踩盘报备</MenuItem>
-          <MenuItem name="4-2">带看报备</MenuItem>
-        </Submenu>
+        <!--<Submenu name="4">-->
+          <!--<template slot="title">-->
+            <!--报备-->
+          <!--</template>-->
+          <!--<MenuItem name="4-1">踩盘报备</MenuItem>-->
+          <!--<MenuItem name="4-2">带看报备</MenuItem>-->
+        <!--</Submenu>-->
       </Menu>
     </Sider>
     <Layout :style="{marginLeft: '200px'}">

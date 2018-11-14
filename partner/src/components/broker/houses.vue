@@ -62,7 +62,8 @@
             title: '均价(元/m²)',
             align:'center',
             key: 'agent_pirce'
-          },{
+          },
+          {
             title: '操作',
             align:'center',
             key: 'address',
@@ -72,12 +73,12 @@
                   cursor:'pointer'
                 }
               },[
-                h('span',{
-                  style:{
-                    color:'#37C57B',
-                    marginRight:'10px',
-                  }
-                },'优惠'),
+                // h('span',{
+                //   style:{
+                //     color:'#37C57B',
+                //     marginRight:'10px',
+                //   }
+                // },'优惠'),
                 h('span',{
                   style:{
                     color:'#3590F1',

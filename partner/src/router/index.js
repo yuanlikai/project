@@ -37,6 +37,16 @@ export default new Router({
           name: 'deveCollect',
           component: resolve => require(['@/components/deve/collect'], resolve)
         },
+        {
+          path: '/deve/deveType',
+          name: 'deveType',
+          component: resolve => require(['@/components/deve/deveType'], resolve)
+        },
+        {
+          path: '/deve/superiorAdd',
+          name: 'superiorAdd',
+          component: resolve => require(['@/components/deve/superiorAdd'], resolve)
+        },
 
         // 合作伙伴
         {
@@ -82,6 +92,11 @@ export default new Router({
           path: '/report/look',
           name: 'reportLook',
           component: resolve => require(['@/components/report/look'], resolve)
+        },
+        {
+          path: '/report/addReport',
+          name: 'addReport',
+          component: resolve => require(['@/components/report/addReport'], resolve)
         }
 
       ]

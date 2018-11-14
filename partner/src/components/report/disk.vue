@@ -8,7 +8,7 @@
       <div style="height: 570px">
         <Row style="margin-bottom:16px">
           <Col span="12">
-          <Button type="primary" icon="md-add">
+          <Button to="addReport" type="primary" icon="md-add">
             添加踩盘报备
           </Button>
           </Col>
