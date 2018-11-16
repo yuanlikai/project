@@ -81,6 +81,11 @@ export default new Router({
           name: 'brokerCollect',
           component: resolve => require(['@/components/broker/collect'], resolve)
         },
+        {
+          path: '/broker/addHouses',
+          name: 'addHouses',
+          component: resolve => require(['@/components/broker/addHouses'], resolve)
+        },
 
         //报备
         {

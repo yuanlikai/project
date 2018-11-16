@@ -31,7 +31,7 @@
           <MenuItem name="1-3">订单管理</MenuItem>
           <MenuItem name="1-4">收藏管理</MenuItem>
         </Submenu>
-        <!--<Submenu name="2">-->
+        <!--<Submenu name="2">-->6387
           <!--<template slot="title">-->
             <!--合作伙伴-->
           <!--</template>-->
@@ -43,7 +43,7 @@
           <template slot="title">
             经纪人/中介
           </template>
-          <MenuItem name="3-1">楼盘管理</MenuItem>
+          <MenuItem name="3-1">房源管理</MenuItem>
           <MenuItem name="3-2">预约管理</MenuItem>
           <MenuItem name="3-3">收藏管理</MenuItem>
         </Submenu>

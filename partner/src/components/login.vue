@@ -140,6 +140,8 @@
 
     },
     mounted() {
+      let a='123 123 123'
+      console.log(a.split(' ').join(''))
 
     }
   }
