@@ -59,12 +59,31 @@
     <Layout :style="{marginLeft: '200px'}">
       <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">
 
+
+        <Row>
+          <Col span="12">
+          <p style="font-size: 14px">上海贵上房产营销策划有限公司</p>
+          </Col>
+          <Col span="12" style="text-align: right">
+          <Dropdown @on-click="tate">
+            <a href="javascript:void(0)">
+              <Avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" />
+              <Icon type="md-arrow-dropdown" color="#515a6e" size="18" />
+            </a>
+            <DropdownMenu slot="list" style="text-align: left">
+              <DropdownItem name="1">个人资料</DropdownItem>
+              <DropdownItem name="2">退出登录</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+          </Col>
+        </Row>
       </Header>
       <router-view></router-view>
     </Layout>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
+  import yl from 'ylcookie'
   export default {
     data() {
       return {
@@ -72,6 +91,23 @@
       }
     },
     methods: {
+      tate(name){
+        console.log(name)
+        let _this=this;
+        switch (name){
+          case '1':
+            break;
+          case '2':
+            let keys=document.cookie.match(/[^ =;]+(?=\=)/g);
+            if (keys) {
+              for (let i =  keys.length; i--;)
+                document.cookie=keys[i]+'=0;expires=' + new Date( 0).toUTCString()
+            }
+            _this.$Message.success('退出登录成功')
+            _this.$router.push('/')
+            break
+        }
+      },
       sect(i) {
         let v = this;
         switch (i) {
@@ -127,10 +163,9 @@
             v.$router.push('/report/look');
             break;
         }
-      }
+      },
     },
     mounted() {
-
     }
   }
 </script>

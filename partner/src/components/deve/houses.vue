@@ -8,14 +8,13 @@
       <div style="height: 570px">
         <Row style="margin-bottom:16px">
           <Col span="12">
-          <Button @click="$router.push({name:'superiorAdd',query:{deve:'true'}})" type="primary"
-                  style="margin-bottom: 15px">
+          <Button @click="$router.push({name:'superiorAdd',query:{deve:'true'}})" type="primary">
             <Icon type="md-add"></Icon>
             添加开楼盘
           </Button>
           </Col>
           <Col span="12">
-          <Input style="width: 300px;float: right;" search enter-button placeholder="Enter something..."/>
+          <!--<Input style="width: 300px;float: right;" search enter-button placeholder="Enter something..."/>-->
           </Col>
         </Row>
         <Table :columns="columns1" :data="data1"></Table>

@@ -140,9 +140,6 @@
 
     },
     mounted() {
-      let a='123 123 123'
-      console.log(a.split(' ').join(''))
-
     }
   }
 </script>
@@ -152,7 +149,7 @@
 
   .content {
     float: left;
-    background: url("https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/%E4%B8%8A%E6%B5%B7%E8%B4%B5%E4%B8%8A%E6%88%BF%E4%BA%A7%E8%90%A5%E9%94%80%E7%AD%96%E5%88%92%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8.jpg") no-repeat center;
+    background: url("https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/adminBack.jpg") no-repeat center;
     background-size: 1920px 1000px;
     width: 100%;
     height: 1000px;
