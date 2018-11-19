@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content1">
     <div class="cont-fixed">
       <div class="fixed-center">
 
@@ -24,7 +24,7 @@
         <div v-show="states" class="fixed-center-inp">
           <div class="center-inp-con center-inp-cona">
             <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/user.png" alt="">
-            <input v-model="user.username" class="inp-con-y" type="text" placeholder="请输入用户名">
+            <input v-model="user.username" maxlength="11" class="inp-con-y" type="text" placeholder="请输入用户名">
           </div>
           <div class="center-inp-con">
             <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/pass.png" alt="">
@@ -51,20 +51,25 @@
           <label>
             <input type="checkbox" checked="checked" class="center-remember-checkbox"> 记住密码
           </label>
-          <a href="" class="forget-password">忘记密码？</a>
+          <a class="forget-password" @click="$refs.pas.modal1=true">忘记密码？</a>
         </form>
 
         <button class="content-login" @click="login">登 录</button>
-        <p class="content-footer">没有账号？立即<a href="" style="color:#B81314">注册</a>！</p>
+        <!--<p class="content-footer">没有账号？立即<a href="" style="color:#B81314">注册</a>！</p>-->
 
       </div>
+      <alterPas ref="pas" title1="找回密码"></alterPas>
     </div>
   </div>
 </template>
 
 <script>
+  import alterPas from './public/alterPas'
   export default {
     name: 'home',
+    components:{
+      alterPas
+    },
     data() {
       return {
         authCode: '60s',
@@ -94,7 +99,7 @@
               });
               sessionStorage.setItem('meu', '1-1')
             } else {
-              alert(res.data.errMsg)
+              v.$Message.error(res.data.errMsg)
             }
           })
         } else {//手机验证码登录
@@ -118,7 +123,6 @@
       //获取验证码
       getCode() {
         let v = this;
-
         let time = 60;
         v.codeStater = false;
         let djs = setInterval(() => {
@@ -140,6 +144,11 @@
 
     },
     mounted() {
+      let keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+      if (keys) {
+        for (let i = keys.length; i--;)
+          document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+      }
     }
   }
 </script>
@@ -147,7 +156,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 
-  .content {
+  .content1 {
     float: left;
     background: url("https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/adminBack.jpg") no-repeat center;
     background-size: 1920px 1000px;
@@ -159,14 +168,14 @@
     float: left;
     width: 100%;
     margin-top: 327px;
-    height: 468px;
+    height: 450px;
     background: rgba(0, 0, 0, .3);
   }
 
   .fixed-center {
     margin: 0 auto;
     width: 648px;
-    height: 468px;
+    height: 450px;
     background: #FFFFFF;
     padding: 0 116px;
   }
