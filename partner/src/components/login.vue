@@ -63,7 +63,8 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
+  import yl from 'ylcookie'
   import alterPas from './public/alterPas'
   export default {
     name: 'home',
@@ -94,10 +95,11 @@
             pwd: v.user.password
           })).then(res => {
             if (res.data.error === 0) {
+              yl.cookie('class_id',res.data.data.class_id);
               v.$router.push({
-                name: 'deveHouses',
+                name: 'welcome',
               });
-              sessionStorage.setItem('meu', '1-1')
+              sessionStorage.setItem('meu', '1')
             } else {
               v.$Message.error(res.data.errMsg)
             }

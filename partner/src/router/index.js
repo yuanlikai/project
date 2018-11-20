@@ -15,6 +15,12 @@ export default new Router({
       name: 'Layout',
       component: resolve => require(['@/components/Layout'], resolve),
       children: [
+        //开发商
+        {
+          path: '/welcome',
+          name: 'welcome',
+          component: resolve => require(['@/components/welcome'], resolve)
+        },
 
         //开发商
         {

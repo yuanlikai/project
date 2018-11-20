@@ -22,7 +22,8 @@
     <Sider :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}">
       <Menu @on-select="sect" :active-name="ctive" theme="dark" width="auto" :open-names="[ctive.split('-')[0]]">
         <img class="layout-logo" src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/logo.png" alt="">
-        <Submenu name="1">
+
+        <Submenu name="1" v-if="status===2">
           <template slot="title">
             开发商
           </template>
@@ -30,6 +31,14 @@
           <MenuItem name="1-2">预约管理</MenuItem>
           <MenuItem name="1-3">订单管理</MenuItem>
           <MenuItem name="1-4">收藏管理</MenuItem>
+        </Submenu>
+        <Submenu name="3" v-else>
+          <template slot="title">
+            经纪人/中介
+          </template>
+          <MenuItem name="3-1">房源管理</MenuItem>
+          <MenuItem name="3-2">预约管理</MenuItem>
+          <MenuItem name="3-3">收藏管理</MenuItem>
         </Submenu>
         <!--<Submenu name="2">-->
         <!--<template slot="title">-->
@@ -39,14 +48,6 @@
         <!--<MenuItem name="2-2">带看报备</MenuItem>-->
         <!--<MenuItem name="2-3">管理分销</MenuItem>-->
         <!--</Submenu>-->
-        <Submenu name="3">
-          <template slot="title">
-            经纪人/中介
-          </template>
-          <MenuItem name="3-1">房源管理</MenuItem>
-          <MenuItem name="3-2">预约管理</MenuItem>
-          <MenuItem name="3-3">收藏管理</MenuItem>
-        </Submenu>
         <!--<Submenu name="4">-->
         <!--<template slot="title">-->
         <!--报备-->
@@ -114,7 +115,7 @@
             :on-exceeded-size="handleMaxSize"
             :before-upload="handleBeforeUpload"
             type="drag"
-            action="https://app.gsfzd.com/publics/picture/imgouter"
+            action="/publics/picture/imgouter"
             style="display: inline-block;width:58px;">
             <div style="width: 58px;height:30px;line-height: 30px;color: #000;">
               更换头像
@@ -155,6 +156,7 @@
     },
     data() {
       return {
+        status:yl.cookie('class_id'),
         user:{},
         formValidate: {},
         ruleValidate: {
@@ -184,7 +186,6 @@
             name:'bc7521e033abdd1e92222d733590f104',
             url: res.data.data.user_headpic
           });
-          console.log(_this.formValidate)
           setTimeout(()=>{
             _this.uploadList = _this.$refs.upload.fileList;
           },0)

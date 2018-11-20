@@ -143,7 +143,6 @@
           page:i
         })).then(res=>{
           if (res.data.error === 0) {
-            console.log(res)
             v.total=res.data.data.nodes;
             v.data1 = res.data.data.info
           } else {
