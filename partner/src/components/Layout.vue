@@ -111,11 +111,12 @@
             :on-success="handleSuccess"
             :format="['jpg','jpeg','png']"
             :max-size="2048"
+            :with-credentials="true"
             :on-format-error="handleFormatError"
             :on-exceeded-size="handleMaxSize"
             :before-upload="handleBeforeUpload"
             type="drag"
-            action="/publics/picture/imgouter"
+            action="/apis/publics/picture/imgouter"
             style="display: inline-block;width:58px;">
             <div style="width: 58px;height:30px;line-height: 30px;color: #000;">
               更换头像
