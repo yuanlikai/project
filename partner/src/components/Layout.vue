@@ -23,7 +23,7 @@
       <Menu @on-select="sect" :active-name="ctive" theme="dark" width="auto" :open-names="[ctive.split('-')[0]]">
         <img class="layout-logo" src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/logo.png" alt="">
 
-        <Submenu name="1" v-if="status===2">
+        <Submenu name="1" v-if="status==1">
           <template slot="title">
             开发商
           </template>
@@ -116,7 +116,7 @@
             :on-exceeded-size="handleMaxSize"
             :before-upload="handleBeforeUpload"
             type="drag"
-            action="/apis/publics/picture/imgouter"
+            action="/publics/picture/imgouter"
             style="display: inline-block;width:58px;">
             <div style="width: 58px;height:30px;line-height: 30px;color: #000;">
               更换头像

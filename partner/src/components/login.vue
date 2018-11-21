@@ -56,9 +56,9 @@
 
         <button class="content-login" @click="login">登 录</button>
         <!--<p class="content-footer">没有账号？立即<a href="" style="color:#B81314">注册</a>！</p>-->
-
       </div>
       <alterPas ref="pas" title1="找回密码"></alterPas>
+
     </div>
   </div>
 </template>
@@ -73,6 +73,7 @@
     },
     data() {
       return {
+        res_c: [],
         authCode: '60s',
         codeStater: true,
         states: true,
@@ -85,6 +86,9 @@
       }
     },
     methods: {
+      asdasd(i){
+        console.log(i)
+      },
 
       //登录
       login() {

@@ -5,8 +5,6 @@ import App from './App'
 import router from './router'
 
 import iView from 'iview';
-// import 'iview/dist/styles/iview.css';
-
 Vue.use(iView);
 
 import 'babel-polyfill'
@@ -16,7 +14,7 @@ import axios from 'axios'
 
 Vue.prototype.Qs = qs;
 Vue.prototype.Axios = axios;
-axios.defaults.baseURL = '/apis';
+// axios.defaults.baseURL = '/apis';
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {// 对响应数据做点什么
   response.data.error === 2 ? v.$router.push('/') : '';
@@ -43,6 +41,7 @@ function timestampToTime(timestamp) {
 Vue.prototype.timestampToTime = timestampToTime;
 
 Vue.config.productionTip = true;
+
 
 /* eslint-disable no-new */
 let v = new Vue({
