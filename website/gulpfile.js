@@ -55,7 +55,7 @@ gulp.task('build', ['html', 'less', 'js', 'publicJs', 'publicCss', 'img']);
 
 gulp.task('serve', ['build'], function () {
     $.connect.server({
-        root: [app.srcPath],
+        root: [app.prdPath],
         livereload: true,
         port: 1234
     });

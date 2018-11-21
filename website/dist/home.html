@@ -5,9 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>home</title>
+    <link rel="stylesheet" href="//pcwebsit.oss-cn-beijing.aliyuncs.com/css/reset.css">
+    <link rel="stylesheet" href="./str/home/home.css">
 </head>
 <body>
-123
+<div class="header">
 
+    <div class="head-topbar">
+        <div class="head-topbar-content">
+            <p class="left">欢迎来到贵上房官网</p>
+            <p class="left cursor"><span class="site color">上海</span> [切换城市]</p>
+            <p class="right topbar-content-phone">咨询热线：400-0052-533</p>
+            <p class="right"><a href="">登录</a> / <a href="">注册</a></p>
+        </div>
+    </div>
+
+    <div class="topbar-banner">
+        <div class="topbar-cont">
+            <span class="topbar-banner-del cursor" src="https://pcwebsit.oss-cn-beijing.aliyuncs.com/img/del.png"
+                  alt=""></span>
+            <div class="open cursor">
+                <span class="open1"></span>
+                <span class="open2"></span>
+            </div>
+            <img class="topbar-banner-img2 topbar-banner-img"
+                 src="https://pcwebsit.oss-cn-beijing.aliyuncs.com/img/863868514085937459.png" alt="">
+            <img class="topbar-banner-img1 topbar-banner-img"
+                 src="https://pcwebsit.oss-cn-beijing.aliyuncs.com/img/350687457566151877.png" alt="">
+        </div>
+    </div>
+
+    <div class="head-search">
+        <div class="head-search-big">
+            <img class="head-search-logo" src="https://pcwebsit.oss-cn-beijing.aliyuncs.com/img/logo.png" alt="">
+            <div class="head-search-con">
+                <img class="head-search-img left" src="https://pcwebsit.oss-cn-beijing.aliyuncs.com/img/search.png" alt="">
+                <input class="head-search-inp left" type="text" placeholder="请输入楼盘名称">
+                <button class="head-search-btn right background cursor">搜索</button>
+                <div class="head-search-site">
+                    <a class="left cursor">嘉定区</a>
+                    <a class="left cursor">宝山区</a>
+                    <a class="left cursor">长宁区</a>
+                    <a class="left cursor">嘉定区</a>
+                    <a class="left cursor">宝山区</a>
+                    <a class="left cursor">长宁区</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="content left">
+
+    <div class="content-menu left">
+        <div class="content-menu-ul">
+            <a class="left content-menu-li content-menu-back" href="">首页</a>
+            <a class="left content-menu-li" href="">新房直卖</a>
+            <a class="left content-menu-li" href="">优质房源</a>
+            <a class="left content-menu-li" href="">中介精推</a>
+            <a class="left content-menu-li" href="">视频中心</a>
+            <a class="left content-menu-li" href="">贵上服务</a>
+            <a class="left content-menu-li" href="">关于我们</a>
+        </div>
+    </div>
+
+
+
+</div>
+
+<script src="//pcwebsit.oss-cn-beijing.aliyuncs.com/js/Jq.js"></script>
+<script>
+    $(function () {
+        $('.topbar-banner-del').click(function(){
+            $('.topbar-cont').animate({height:'0'},400)
+        });
+        $('.topbar-cont').animate({height:'136px'},800);
+        $('.open').toggle(function () {
+            $('.topbar-banner-img1').animate({'opacity': 0}, 800);
+            $('.topbar-cont').animate({height: '250px'}, 800, function () {
+                $('.open1').hide();
+                $('.open2').show()
+            })
+        }, function () {
+            $('.topbar-banner-img1').animate({'opacity': 1}, 800);
+            $('.topbar-cont').animate({height: '136px'}, 800, function () {
+                $('.open2').hide();
+                $('.open1').show()
+            })
+        })
+
+    })
+</script>
 </body>
 </html>
