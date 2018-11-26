@@ -63,7 +63,7 @@
     <div class="content-menu left">
         <div class="content-menu-ul">
             <a  target="_blank" class="left content-menu-li content-menu-back" href="">首页</a>
-            <a  target="_blank" class="left content-menu-li" href="">新房直卖</a>
+            <a  target="_blank" class="left content-menu-li" href="newHouses.html">新房直卖</a>
             <a  target="_blank" class="left content-menu-li" href="">优质房源</a>
             <a  target="_blank" class="left content-menu-li" href="">中介精推</a>
             <a  target="_blank" class="left content-menu-li" href="">视频中心</a>
@@ -614,6 +614,7 @@
 <script src="//pcwebsit.oss-cn-beijing.aliyuncs.com/js/GSswiper.js"></script>
 <script>
     $(function () {
+
         var tran;
         function startTran(){
             tran = setInterval(function () {
@@ -630,44 +631,20 @@
             startTran()
         });
 
-        $('.topbar-banner-del').click(function () {
-            $('.topbar-cont').animate({height: '0'}, 400)
-        });
-        $('.topbar-cont').animate({height:'136px'},800);
-        $('.open').toggle(function () {
-            $('.topbar-banner-img1').animate({'opacity': 0}, 800);
-            $('.topbar-cont').animate({height: '250px'}, 800, function () {
-                $('.open1').hide();
-                $('.open2').show()
-            })
-        }, function () {
-            $('.topbar-banner-img1').animate({'opacity': 1}, 800);
-            $('.topbar-cont').animate({height: '136px'}, 800, function () {
-                $('.open2').hide();
-                $('.open1').show()
-            })
-        });
-        $('.banner-news-head p').click(function () {
-            $(this).addClass('news-headBack').siblings().removeClass('news-headBack')
-        });
-
-
         var mySwiper = new Swiper('.swiper-container', {
             autoplay:true,//等同于以下设置
             loop: true, // 循环模式选项
-
             // 如果需要分页器
             pagination: {
                 el: '.swiper-pagination',
             },
-
             // 如果需要前进后退按钮
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-
         })
+
     })
 </script>
 </body>
