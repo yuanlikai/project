@@ -20,7 +20,63 @@
 <!--内容-->
 <div class="content left">
     <div class="content-box">
+        <p class="content-head left">欢迎注册</p>
+        <div class="content-ul left">
+            <div class="conback content-li  left">
+                <p class="content-li-bq">1</p>
+                <span class="content-li-text left">验证手机号</span>
+            </div>
+            <span class="back-line content-line left"></span>
+            <div class="content-li left">
+                <p class="content-li-bq">2</p>
+                <span class="content-li-text left">填写账号信息</span>
+            </div>
+            <span class="content-line left"></span>
+            <div class="content-li left">
+                <p class="content-li-bq">3</p>
+                <span class="content-li-text left">注册成功</span>
+            </div>
+        </div>
 
+        <!--验证手机号-->
+        <ul class="content-rig-inp content-rig-inpb left">
+            <li class="content-inp-li left">
+                <p class="content-li-img content-li-imgb">手机号</p>
+                <input maxlength="11" class="content-li-input " placeholder="建议使用常用手机号" type="text"
+                       onkeyup="this.value=this.value.replace(/\D/g,'')"
+                       onafterpaste="this.value=this.value.replace(/\D/g,'')">
+            </li>
+            <li class="content-inp-li left">
+                <p class="content-li-img content-li-imga">验证码</p>
+                <input class="content-li-input content-li-inputa" placeholder="请输入验证码" type="password">
+                <button class="getCode cursor">获取验证码</button>
+            </li>
+            <button class="next1 content-next left cursor">下一步</button>
+        </ul>
+
+        <!--填写账号信息-->
+        <ul class="content-rig-inp content-rig-inpb left" style="display: none">
+            <li class="content-inp-li left">
+                <p class="content-li-img content-li-imgb">用户名</p>
+                <input maxlength="11" class="content-li-input " placeholder="请输入您的用户名" type="text">
+            </li>
+            <li class="content-inp-li left">
+                <p class="content-li-img content-li-imgb">设置密码</p>
+                <input maxlength="11" class="content-li-input " placeholder="射仪设置6个字符以上的密码" type="text">
+            </li>
+            <li class="content-inp-li left">
+                <p class="content-li-img content-li-imgb">确认密码</p>
+                <input maxlength="11" class="content-li-input " placeholder="请再次输入密码" type="text">
+            </li>
+            <button class="next2 content-next left cursor">下一步</button>
+        </ul>
+
+        <!--注册成功-->
+        <div class="content-rig-inp content-ri content-rig-inpb left" style="display: none">
+            <img src="data:image/png;base64,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" alt="">
+            <p class="content-success left">恭喜你！注册成功！</p>
+            <a class="content-tz left" href="">点击立即登录</a>
+        </div>
     </div>
 </div>
 
@@ -87,17 +143,18 @@
 <script src="//pcwebsit.oss-cn-beijing.aliyuncs.com/js/Jq.js"></script>
 <script>
     $(function () {
-
-        $('.content-rig-head>p').click(function () {
-            if($(this).index()===0){
-                $('.content-rig-inpa').fadeIn(100);
-                $('.content-rig-inpb').hide()
-            }else{
-                $('.content-rig-inpa').hide();
-                $('.content-rig-inpb').fadeIn(100);
-            }
-            $(this).addClass('color').siblings().removeClass('color')
+        $('.next1').click(function(){//验证手机号下一步
+            $(this).parent().hide();
+            $(this).parent().next().show();
+            $('.content-li').eq(1).addClass('conback');
+            $('.content-line').eq(1).addClass('back-line')
         });
+        $('.next2').click(function(){//验证手机号下一步
+            $(this).parent().hide();
+            $(this).parent().next().show();
+            $('.content-li').eq(2).addClass('conback');
+        });
+
 
         //获取验证码
         $('.getCode').click(function () {
@@ -108,8 +165,7 @@
                 if(time!==0){
                     $('.getCode').html(time+'s')
                 }else{
-                    $('.getCode').html('获取验证码')
-                    $('.getCode').removeAttr('disabled')
+                    $('.getCode').html('获取验证码').removeAttr('disabled')
                     clearInterval(inter)
                 }
             },1000)
