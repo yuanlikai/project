@@ -73,6 +73,7 @@
     },
     data() {
       return {
+        a:1,
         res_c: [],
         authCode: '60s',
         codeStater: true,

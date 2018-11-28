@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>home</title>
+    <link rel="stylesheet" href="//pcwebsit.oss-cn-beijing.aliyuncs.com/css/reset.css">
+    <link rel="stylesheet" href="./str/register/register.css">
+</head>
+<body>
+<div class="header">
+    <div class="header-box">
+        <img class="header-img"
+             src="data:image/png;base64,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"
+             alt="">
+    </div>
+</div>
+
+<!--内容-->
+<div class="content left">
+    <div class="content-box">
+
+    </div>
+</div>
+
+<!--footer-->
+<div class="footer">
+    <div class="footer-con">
+        <div class="footer-centre left">
+            <div class="footer-centre1 left">
+                <div class="footer-centre1-phone left">
+                    <div class="footer-center1-head left">
+                        <img class="footer-centre1-phone2 left"
+                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAHu0lEQVRYR62Yf3BcVRXHv+ftphtgsEmoChns2NpECzIOyigKSBCKlUJB65aiNiTsu3cLw4yOBetv0mFGlB/t1NKSvfdtktopNFmlCJSWjiM/rD+GWkF0+CGM1dHGAYHdgolxN+8d52TelmWzm80muf/s7Lx77/ncc889vwhzNOLx+AktLS2LfN8/gZmPpNPpN+Zia5rpJlrrhQDWMPNKIvoAgFPL9nqTmf8K4JDjOPsjkciB7du3/6deeXUB9vT0OMPDw2sBuMx8XijsDwD+CeB1AKI1B8ASIlrCzPI7T+Yxs09Ej/u+f0s6nf71dEGnDei67mVEdCcRLWXmRx3HuT+fz+/p7+//dzVhHR0d0fb29gsArASwCsD7wrkPBUGwwfO852uB1gTs7Ow8JRaL7SaiSwC84Pu+W48GSgHkkI7jbARwDoBxAOuNMT+eCnJKwGQy+ZEgCB4movcy87dzudzmTCbj1zp1re+u617pOE5vaLeDsVjs2q1bt/6v0rqqgOEmgwBe833/inQ6/XQtwfV8d133dMdxfgHgg8z8GyLqMMYUyveoCJhMJs9h5oPM/GwQBMvnymWUC9dazwfwIIBPA9hmjLmxJmB4sqeZ2fF9/6y+vr7hejRT79y1a9ee1NjYeEgeXxAEcc/zflq6xyQNKqV+T0RnE9FFqVTqyXKByWSyjZnjAF4yxshmXC9U+fyiUgCcGATBYs/zXinOeQeg1loEDzHz7dbaDRWu5DsAegBEw28HYrHYymoGXg+467odjuM8xsxpa607CTAej0eam5tfZuZ3jY6OLtq1a9ebpQK01rcIHDMfJqJuABcB2MLMu62119QDU22uUuoRIvrs+Pj4GX19fS/KvOMaVEpdR0RpZl5vrd1UuolSql18IBEdjsVi5xc1prUeAhBn5uXW2kdnC6m1PgvAM8x8v7VWbvNtQK31PgAXxmKx5vIr01p/A8CPfN//RDqdfqoIIglCc3PzcwBGs9ns2ZlMJj9bSKXUQwAuzeVyTZlM5r8TGtRan8jMWSLaY4xZUy5EKXUrEX23UCi8pzy0KaXWENF9RHRdKpXqny1gMpnsZuY+AKuNMZkJwNApP0BEa1KplDjndwzXdTsdx9kB4HJjzN4y22wQDTLzvdbaa2cLGIZWecVD1tovTQAqpe4ioq+PjIzML38c8r2rq+vUhoYG8YcC8ZUyQIEaAHCjMWbbbAFDnt8CWGCtbSte8W65d2NMyxQvTDS83HGcD/X29v6tOE8ptV/8Zmtr62k9PT3BHAGKychtnVzUoDjkFmvth6sJSCaTZwRB8GfJ6YwxnynOC1+ypFKXGGMemyPAiRsFMK8I+BKAI9baS6cSoLVOyZtiZm2ttTI3kUgsiUQif5TQyMyf8zzv8dlCaq3XA7hzIvEN71xS85enAbiAmV8kokYAHzPGvBCuX01Eg8z8FjOf73nes7OBVErdRER3EFF7EfAgEc03xoijnHIopS4kol8CEDv8qDHmWOiqrgdwN4AxZu72ff9gNBr9MoBzATwRBMFgaYytcVObAXwNwElFwEEiutgYs6AWYAjzTQC3AXgym80uKzroEP5nAE4J9xkFII5c0rcxIrq1tbX1h7UeU2jX8mibpuVmKkCTUkrKgNUA9ku9YYwRGHH6Ygbfl9A4Nja2Y+fOnSOJROK8SCTyEwCLmfkJZr56Km0qpZ4jIjbGnFl01FIr7GXma6y14nJqDimI2trahojo8wD+VCgUVvT39/+j2kIJi01NTVuISAE4WigUPllp/rp1694fBMERAPcYY26YAIzH4/Oam5ulOttXKdRNIVQyoF0ArpbSIAiCL3ie96upThdGJU8qQ2vtFeVztdY3A7idmS+z1u4rzWbuJaKr8vl8y8DAwFhNFZZMUEp9VTYFEAEgPmxj8cqrmMdrkrVYay+uAHgYwNJsNivJQv44oOu6yxzHOcDMN1trxQfVNVzXXUpEGSI6k5mHmfmmY8eODZVVgaS1lnB4PTMnrLWSFBwfWuurAOwBkDHGiH2/nW7JH6WUuBtxNQuL7qMeSjGVpqYmOdwNRBQRUAAHiOgpInolCIJ1RLSMmR+x1q4o3Vu6FkePHn0+7Egstdb+ZRJgWM0dAnCHMUZywBmNMLpskNdKRCcXN2FmJqIt+Xz+W+VmpJSSQ22rmvIXN9FaDzBzp7QrrLUPz4gwXNTV1dXY0NCwioik0HrV9/0HKlWJYSZ9iJnHI5HI4t7e3leLcidVdZK8ApCG0MIgCM6dbdiqdcCwNpbQeDozX1mulIqFu9Za2mlSG4wAkHrjmVqCZvK9u7v73dFoVNK4T1WqhSbZYNmLEiOWsOWHJ5M2xZyNRCLxccdxHgz7PputtZJeTRrTah4BOA3A9xobGzfNtgYO7XKj5HvMLAmua63dWe3k9bbf/sXMt+VyudRMKjjXdb9IRJuJSOzt78y8yvM8ccxVR03Akte9gpklR5MGZk7CouM4P49EInurtXarNDBfZ+Yf5HK5u6dzyGkDCmixBRz6N0n7Y6Fvky5EsQUsLbQWZpb6pkUctqyVxjoR7RgfH9/U19f31nSNuS7A0k3FlqLR6AWO43Qw82IiWhT+NgHIhlp+Q6JIEAT3eZ73u+lClc6bMeBMhM1kzf8Bdf/EeI0xBGQAAAAASUVORK5CYII="
+                             alt="">
+                        <span class="left footer-centre1-phone1">客服热线 <span style="font-size: 16px;">400-0052-533</span></span>
+                    </div>
+                    <p class="footer-site">地理位置</p>
+                    <p class="footer-site">上海市嘉定区南翔镇银翔路799号603室</p>
+                    <p class="footer-site">座机电话：021-69910096</p>
+                </div>
+                <div class="deve-big left">
+                    <div class="deve left">
+                        <p class="footer-deve foot-dev-head">开发商/中介</p>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">开店协议</a>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">账号注册</a>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">发布房源信息流程</a>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">图片视频上传规则</a>
+                    </div>
+                    <div class="deve left">
+                        <p class="footer-deve foot-dev-head">用户专区</p>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">账号注册</a>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">评论规则</a>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">消费者协议保障</a>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">贵上房用户服务申明</a>
+                    </div>
+                    <div class="deve left" style="margin-right: 0">
+                        <p class="footer-deve foot-dev-head">预约订购</p>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">订购流程</a>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">预约流程</a>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">付款流程</a>
+                        <a href="" target="_blank" class="foot-dev-jc footer-site-hover">退订流程</a>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-code right">
+                <div class="foot-code-img right">
+                    <img src="https://pcwebsit.oss-cn-beijing.aliyuncs.com/img/WX.png" alt="">
+                    微信公众号
+                </div>
+                <div class="foot-code-img right">
+                    <img src="https://pcwebsit.oss-cn-beijing.aliyuncs.com/img/AZ.png" alt="">
+                    APP下载(安卓)
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom left">
+            <p class="left">版权所有：上海柏钞网络科技有限公司</p>
+            <p class="left">沪ICP备17032006号-1</p>
+            <p class="left">贵州分公司授权</p>
+            <p class="left">安徽分公司授权</p>
+        </div>
+    </div>
+</div>
+
+<script src="//pcwebsit.oss-cn-beijing.aliyuncs.com/js/Jq.js"></script>
+<script>
+    $(function () {
+
+        $('.content-rig-head>p').click(function () {
+            if($(this).index()===0){
+                $('.content-rig-inpa').fadeIn(100);
+                $('.content-rig-inpb').hide()
+            }else{
+                $('.content-rig-inpa').hide();
+                $('.content-rig-inpb').fadeIn(100);
+            }
+            $(this).addClass('color').siblings().removeClass('color')
+        });
+
+        //获取验证码
+        $('.getCode').click(function () {
+            $('.getCode').attr('disabled','disabled')
+            var time = 60;
+            var inter = setInterval(function(){
+                time--;
+                if(time!==0){
+                    $('.getCode').html(time+'s')
+                }else{
+                    $('.getCode').html('获取验证码')
+                    $('.getCode').removeAttr('disabled')
+                    clearInterval(inter)
+                }
+            },1000)
+        })
+    })
+</script>
+</body>
+</html>

@@ -108,10 +108,13 @@
                     </div>
                     <div class="banner-news left">
                         <div class="banner-news-head">
+
                             <p class="left cursor news-headBack">热点新闻</p>
                             <p class="left cursor">实时资讯</p>
+
                         </div>
                         <div class="banner-news-ulbig left">
+
                             <ul class="banner-news-ul banner-news-ul1 left">
                                 <a href="" class="banner-news-li left cursor"  target="_blank">全国首套房贷款利率连续22个月上涨 北京10月份二手房成交量再次低于万套</a>
                                 <a href="" class="banner-news-li left cursor"  target="_blank">2018年最新经济适用房申请条件，你符合吗？</a>
@@ -122,6 +125,7 @@
                                 <a href="" class="banner-news-li left cursor"  target="_blank">开发商跑量意图非常明显！</a>
                                 <a href="" class="banner-news-li left cursor"  target="_blank">暴跌22%！宁损失数十万也要违约 香港楼市10年牛市终结</a>
                             </ul>
+
                         </div>
                     </div>
                 </div>
@@ -628,6 +632,10 @@
             clearInterval(tran)
         }, function () {
             startTran()
+        });
+
+        $('.banner-news-head p').click(function(){
+            $(this).addClass('news-headBack').siblings().removeClass('news-headBack')
         });
 
         var mySwiper = new Swiper('.swiper-container', {
