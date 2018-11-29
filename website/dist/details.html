@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <title>home</title>
     <link rel="stylesheet" href="//pcwebsit.oss-cn-beijing.aliyuncs.com/css/reset.css">
     <link rel="stylesheet" href="//pcwebsit.oss-cn-beijing.aliyuncs.com/css/GSswiper.css">
@@ -157,12 +158,48 @@
                             <!--<p class="houses-li-site left">上海市嘉定区南翔镇银翔路799号</p>-->
                             <div class="houses-li-price left">12000元/m²</div>
                         </a>
+                        <a href="" target="_blank" class="houses-rig-li left">
+                            <div class="houses-li-img left"
+                                 style="background: url('https://gsf-app.oss-cn-hangzhou.aliyuncs.com/img/you/20181122/154286948812870.jpg?x-oss-process=image/resize,w_200')center">
+                            </div>
+                            <div class="houses-li-head left">
+                                <span class="houses-li-head-h left">楼盘名称</span>
+                                <span class="houses-li-bq houses-li-bq1 right">住宅</span>
+                                <span class="houses-li-bq houses-li-bq3 right">待售</span>
+                            </div>
+                            <!--<p class="houses-li-site left">上海市嘉定区南翔镇银翔路799号</p>-->
+                            <div class="houses-li-price left">12000元/m²</div>
+                        </a>
+                        <a href="" target="_blank" class="houses-rig-li left">
+                            <div class="houses-li-img left"
+                                 style="background: url('https://gsf-app.oss-cn-hangzhou.aliyuncs.com/img/you/20181122/154286948812870.jpg?x-oss-process=image/resize,w_200')center">
+                            </div>
+                            <div class="houses-li-head left">
+                                <span class="houses-li-head-h left">楼盘名称</span>
+                                <span class="houses-li-bq houses-li-bq1 right">住宅</span>
+                                <span class="houses-li-bq houses-li-bq3 right">待售</span>
+                            </div>
+                            <!--<p class="houses-li-site left">上海市嘉定区南翔镇银翔路799号</p>-->
+                            <div class="houses-li-price left">12000元/m²</div>
+                        </a>
                     </ul>
                 </div>
 
                 <div class="houses-box">
                     <div class="houses-con left">
-                        123
+                        <div class="houses-con-head left">360全景</div>
+                        <iframe class="houses-head360 left" src="https://720yun.com/t/1f6jezhwsO7">
+                        </iframe>
+                        <div class="houses-con-head left" style="margin-top: 50px;">周边配套</div>
+                        <div id="container"></div>
+                        <ul class="map-side left">
+                            <li class="cursor left amp-side-li side-back">地铁</li>
+                            <li class="cursor left amp-side-li">公交</li>
+                            <li class="cursor left amp-side-li">餐饮</li>
+                            <li class="cursor left amp-side-li">购物</li>
+                            <li class="cursor left amp-side-li">医院</li>
+                            <li class="cursor left amp-side-li">学校</li>
+                        </ul>
                     </div>
 
                     <div class="houses-rig houses-riga">
@@ -303,12 +340,11 @@
             slidesPerView: 5,
             loop: true,
             centeredSlides: true,
-
             on:{
                 slideChangeTransitionEnd: function(){
                     $('.houses-view img').attr('src',$('.swiper-slide').eq(this.activeIndex).find('.swiper-img').attr('src').split('?')[0]+'?x-oss-process=image/resize,w_710')
                     console.log(this.activeIndex);//切换结束时，告诉我现在是第几个slide
-                },
+                }
             },
             // 如果需要分页器
             pagination: {
@@ -319,9 +355,7 @@
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev'
             }
-
         });
-
 
         $('.filtrate-list-li').click(function () {
             $(this).addClass('color').siblings().removeClass('color')
@@ -331,6 +365,38 @@
         })
     })
 
+</script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5WmyVa9mFhEyh2B84Qiq71mSmsGNIjW5"></script>
+<script type="text/javascript">
+    // 百度地图API功能
+    function map(c){
+        var map = new BMap.Map("container");            // 创建Map实例
+        var mPoint = new BMap.Point(121.243908,31.059351);
+        map.enableScrollWheelZoom();
+        map.centerAndZoom(mPoint,15);
+
+        var circle = new BMap.Circle(mPoint,1000,{fillColor:"blue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
+        map.addOverlay(circle);
+        var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
+        local.searchNearby(c,mPoint,1000);
+        // 百度地图API功能
+
+        map.centerAndZoom(mPoint, 15);
+        var marker = new BMap.Marker(mPoint);  // 创建标注
+        map.addOverlay(marker);               // 将标注添加到地图中
+        map.enableScrollWheelZoom();
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    }
+    map('银行')
+    $(function(){
+        $('.amp-side-li').click(function(){
+            $(this).addClass('side-back').siblings().removeClass('side-back')
+            map($(this).html())
+        })
+    })
+    // $(window).click(function(){
+    //     map('学校')
+    // })
 </script>
 </body>
 </html>
