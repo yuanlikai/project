@@ -88,6 +88,40 @@
                         <div class="houses-view left">
                             <img style="float: left" src="http://img.gsfzd.com/img/you/20181115/154226157113114.jpg" alt="">
                         </div>
+                        <div class="houses-detail left">
+                            <p class="houses-detail-price left">
+                                12000<span style="font-size: 18px">元/m²(均价)</span>
+                            </p>
+                            <p class="houses-detail-text">
+                                楼盘地址： <span style="color: #666;">上海市嘉定区南翔镇银翔路799号603室</span>
+                            </p>
+                            <p class="houses-detail-text">
+                                装修标准：<span style="color: #666;">毛坯</span>
+                            </p>
+                            <p class="houses-detail-text">
+                                开盘时间：<span style="color: #666;">2018-02-01</span>
+                            </p>
+                            <p class="houses-detail-text">
+                                产权年限：<span style="color: #666;">70年</span>
+                            </p>
+                            <p class="houses-detail-text">
+                                占地面积：<span style="color: #666;">12000m²</span>
+                            </p>
+                            <p class="houses-detail-text">
+                                绿&nbsp;&nbsp;化&nbsp;率：<span style="color: #666;">30%</span>
+                            </p>
+                            <p class="houses-detail-text">
+                                规划户数：<span style="color: #666;">800户</span>
+                            </p>
+                            <button class="houses-detail-btn houses-detail-btn1 left cursor">收藏项目</button>
+                            <button class="houses-detail-btn houses-detail-btn2 left cursor">预约项目</button>
+                            <div class="houses-broker left">
+                                <img class="houses-broker-img left" alt="" src="https://gsf-app.oss-cn-hangzhou.aliyuncs.com/img/you/20181122/154286948812870.jpg?x-oss-process=image/resize,w_80" >
+                                <p class="houses-broker-Name">袁理开</p>
+                                <p class="houses-broker-Text">从业房地产行业7年，具有丰富的经验。</p>
+                                <p class="houses-broker-Phone" style="color: #3399FF;">咨询电话：15021585820</p>
+                            </div>
+                        </div>
                         <div class="swiper-box left">
                             <div class="swiper-button-prev swiper-button-black"></div>
                             <div class="swiper-container swiper-containera left">
@@ -122,6 +156,10 @@
                                 </div>
                             </div>
                             <div class="swiper-button-next swiper-button-black"></div>
+                        </div>
+                        <div class="houses-bot left">
+                            <p class="houses-bot-phone">咨询电话：<span style="font-size: 16px;">400-0052-533</span></p>
+                            <p class="houses-bot-text">欢迎致电咨询楼盘最新政策，价格详情。</p>
                         </div>
                     </div>
                 </div>
@@ -514,10 +552,19 @@
     </div>
 </div>
 
+<div class="fixed-xf" style="display: none">
+    预约成功
+</div>
+
 <script src="//pcwebsit.oss-cn-beijing.aliyuncs.com/js/Jq.js"></script>
 <script src="//pcwebsit.oss-cn-beijing.aliyuncs.com/js/GSswiper.js"></script>
 <script>
     $(function () {
+
+        $('.houses-detail-btn').click(function(){
+            $('.fixed-xf').html($(this).html()+'成功')
+            $('.fixed-xf').stop(true).fadeIn(150).delay(2500).fadeOut(150)
+        })
 
         var mySwiper = new Swiper('.swiper-containera', {
             slideToClickedSlide: true,
