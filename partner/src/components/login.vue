@@ -30,6 +30,7 @@
             <img src="https://gsfhuodong.oss-cn-hangzhou.aliyuncs.com/voucher/pass.png" alt="">
             <input v-model="user.password" class="inp-con-y" type="password" placeholder="请输入密码">
           </div>
+          {{a}}
         </div>
 
         <!--手机登录-->
@@ -57,6 +58,7 @@
         <button class="content-login" @click="login">登 录</button>
         <!--<p class="content-footer">没有账号？立即<a href="" style="color:#B81314">注册</a>！</p>-->
       </div>
+      <button @click="routeClick">123</button>
       <alterPas ref="pas" title1="找回密码"></alterPas>
 
     </div>
@@ -66,14 +68,22 @@
 <script type="text/ecmascript-6">
   import yl from 'ylcookie'
   import alterPas from './public/alterPas'
+
   export default {
     name: 'home',
-    components:{
+    components: {
       alterPas
+    },
+    watch:{
+      $route(to){
+        // console.log(to.query.a)
+        // this.asdasd();
+
+      }
     },
     data() {
       return {
-        a:1,
+        a: 1,
         res_c: [],
         authCode: '60s',
         codeStater: true,
@@ -87,8 +97,18 @@
       }
     },
     methods: {
-      asdasd(i){
-        console.log(i)
+      routeClick() {
+        this.$router.push({
+          path: '/',
+          query: {
+            a: 123,
+            b: 456
+          }
+        })
+        this.asdasd();
+      },
+      asdasd() {
+        console.log(this.$route.query.a)
       },
 
       //登录
@@ -100,7 +120,7 @@
             pwd: v.user.password
           })).then(res => {
             if (res.data.error === 0) {
-              yl.cookie('class_id',res.data.data.class_id);
+              yl.cookie('class_id', res.data.data.class_id);
               v.$router.push({
                 name: 'welcome',
               });
@@ -151,12 +171,12 @@
 
     },
     mounted() {
+      this.asdasd()
       let keys = document.cookie.match(/[^ =;]+(?=\=)/g);
       if (keys) {
         for (let i = keys.length; i--;)
           document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
       }
-      
     }
   }
 </script>
