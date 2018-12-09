@@ -757,15 +757,6 @@
 
 
         //一键订阅
-        function isPoneAvailable($poneInput) {
-            var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
-            if (!myreg.test($poneInput.val())) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-
         $('.take-cha').click(function () {
             $('.take').animate({'bottom': '-301px'}, 800, function () {
                 $('.take-fixed').animate({left: '0'}, 250)
@@ -781,7 +772,7 @@
             if (!phoneReg.test($('.take-phone-inp2').val())) {
                 alert('请输入正确手机号')
             } else {
-                $('.take-details').fadeIn(150)
+                $('.take-details').fadeIn(150);
                 $('.take').animate({'bottom': '-301px'}, 800, function () {
                     $('.take-fixed').animate({left: '0'}, 250)
                 });
@@ -790,6 +781,7 @@
         $('.take-details-btn').click(function () {
             $('.take-details').fadeOut(150)
         })
+
 
 
         $('.hot-list-li').hover(function () {
