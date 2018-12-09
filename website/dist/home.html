@@ -224,7 +224,7 @@
                 <span class="quality-heads-line right"></span>
             </div>
             <div class="hot-list left">
-                <a href="" target="_blank" class="hot-list-li left" style="background: url('https://gsf-app.oss-cn-hangzhou.aliyuncs.com/img/you/20181122/154286948721736.jpg?x-oss-process=image/resize,w_280')center">
+                <a name="名称" text="123" 360="https://720yun.com/t/1f6jezhwsO7" video="http://1254002173.vod2.myqcloud.com/71626a38vodgzp1254002173/144c78317447398156357500567/ePj2hb9dx6UA.mp4" target="_blank" href=""  class="hot-list-li left" style="background: url('https://gsf-app.oss-cn-hangzhou.aliyuncs.com/img/you/20181122/154286948721736.jpg?x-oss-process=image/resize,w_280')center">
                     <p class="hot-list-head left">美瑞清河湾</p>
                 </a>
                 <a href="" target="_blank" class="hot-list-li left"  style="background: url('https://gsf-app.oss-cn-hangzhou.aliyuncs.com/img/you/20180913/15368364064092.jpg?x-oss-process=image/resize,w_280')center">
@@ -660,12 +660,19 @@
 <script>
     $(function () {
 
+        $('.hot-list-li').hover(function(){
+            $('.hot-con-rig-title').html($(this).attr('name'));
+            $('.hot-con-rig-text').html($(this).attr('text'));
+            $('.hot-con-video1').attr('src',$(this).attr('video'));
+            $('.hot-con360').attr('src',$(this).attr('360'));
+        },function(){});
+
         $('.fixed-right-im').click(function(){
             $('.fixed-content').fadeIn('150')
-        })
+        });
         $('.fixed-content-del').click(function(){
             $('.fixed-content').fadeOut('150')
-        })
+        });
 
         var tran;
         function startTran(){
