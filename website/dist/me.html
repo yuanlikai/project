@@ -191,30 +191,30 @@
                         </p>
                         <img class="con-rig-ul-img left" src="http://img.gsfzd.com/img/you/20181201/1543633306811.jpg"
                              alt="">
-                        <button class="con-rig-ul-btn right">修改</button>
+                        <button class="con-rig-ul-btn con-rig-ul-btn-tx right cursor">修改</button>
                     </li>
                     <li>
                         <p class="con-rig-ul-name left">
-                            账号 :
+                            昵称 :
                         </p>
-                        <input class="con-rig-ul-inp left" type="text" value="15021585820">
-                        <button class="con-rig-ul-btn right">修改</button>
+                        <input class="con-rig-ul-inp con-rig-ul-nike left" style="border: 1px solid #e0e0e0;" type="text" value="15021585820">
+                        <!--<button class="con-rig-ul-btn right">修改</button>-->
                     </li>
                     <li>
                         <p class="con-rig-ul-name left">
                             手机 :
                         </p>
-                        <input class="con-rig-ul-inp left" type="text" value="15021585820">
-                        <button class="con-rig-ul-btn right">修改</button>
+                        <input class="con-rig-ul-inp left" disabled="disabled" type="text" value="15021585820">
+                        <!--<button class="con-rig-ul-btn right">修改</button>-->
                     </li>
                     <li>
                         <p class="con-rig-ul-name left">
                             密码 :
                         </p>
-                        <input class="con-rig-ul-inp left" type="password" value="15021585820">
-                        <button class="con-rig-ul-btn right">修改</button>
+                        <input class="con-rig-ul-inp left" disabled="disabled" type="password" value="15021585820">
+                        <button class="con-rig-ul-btn con-rig-ul-btnmm right cursor">修改</button>
                     </li>
-                    <button class="con-rig-ul-submit left cursor">提交</button>
+                    <!--<button class="con-rig-ul-submit left cursor">提交</button>-->
                 </ul>
             </div>
         </div>
@@ -273,8 +273,56 @@
     </div>
 </div>
 
+<!--修改头像弹窗-->
+<div class="approve approve-img" style="display: none">
+    <div class="approve-box" onclick="event.stopPropagation()">
+        <p class="approve-box-head left">修改头像</p>
+        <div class="phone-ul left">
+            <img class="phone-ul-img" src="http://img.gsfzd.com/img/you/20181201/1543633306811.jpg" alt="">
+            <div class="xz-img cursor">
+                选择头像
+                <input class="phone-ul-file" type="file"  accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
+            </div>
+            <p class="phone-ul-tx left">*上传文件小于500k的图片</p>
+            <button class="phone-ul-btn left cursor">确认修改</button>
+        </div>
+    </div>
+</div>
+
+<!--修改手机号弹窗-->
+<div class="approve approve-phone" style="display: none">
+    <div class="approve-box" onclick="event.stopPropagation()">
+        <p class="approve-box-head left">修改账户密码</p>
+        <div class="phone-ul left">
+            <div class="phone-ul-li left">
+                <img class="phone-ul-li-img left"
+                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAASCAYAAABrXO8xAAAAo0lEQVQ4T+3TMQoCMRQE0PmWdp5Ct/ICnsNasJj0FnsGC/tMQLD2HDaWVounsLM0koCggqtZsTNt8jJhyDdJIwAbAAMAF7SvHoATgJmFEPYxxgXJ3RuUtyVNzGxlko4kh5+g25lkEjyQHBfCJsE+yXMxLAF3T82JW5LTkgskZdiQrP7wsYHflCNpnXJIzp8bb0303tcJOOeWr2C3T/7NWHUa5CsRRIAH6iseDQAAAABJRU5ErkJggg=="
+                     alt="">
+                <span class="phone-ul-line left"></span>
+                <input class="phone-ul-inp left" disabled="disabled" value="15021585820" type="text">
+            </div>
+            <div class="phone-ul-li left">
+                <img class="phone-ul-li-img left"
+                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAASCAYAAABrXO8xAAABpUlEQVQ4T8XTQUsbURAA4JlNYn6BlB5tBRF6lPoHBCuWHnsuBnZmowfTi7RepIeKl1ICyb55IURKb+pFFBR71ZNX0ZY2f6GFQg5J9k15JYa4rNpb9/Zm3rcz82AQUp+1dsE59wYRHwIAqmo7CIKNMAzPRq/i6EFEVlT1JSKGRHTlc8aYGUS0qvqemXev7w9ho9GYcM7tA8AsEXVGf1itVseLxeJpp9N5WqlUfvncEIrIuqr+ZOZ6un1/FpFNVb1g5s9peIKIy2EYfsuC1tol59wDZt5MwyYRlbLQoOI7Vf3OzJ9uwAHAVqtVzMLdbvcoSZKlcrncHsJmsznV6/W2EPEJAPy+peq4qp4XCoW1Uqn0Fev1+lQul9sfzPfltlZ93Fo7p6q1JEleoIjsOedsFEXHd6HrXBzH80EQhB62iehRGsVx/NzHoig6SOe88fCSiKYzkqs+RkQfM3KX/wdmzmiMeeZbZOajzBmNMTuIuE1Eh//yqiKyqKqvsFarTebzeY9e34c9AoAP/X5/8e92iMhjv28A4Hevm1VZVccA4BwR3xLRjz/MdNwCnKwqQAAAAABJRU5ErkJggg=="
+                     alt="">
+                <span class="phone-ul-line left"></span>
+                <input class="phone-ul-inp phone-ul-inpa left" maxlength="4" type="text" placeholder="请输入验证码">
+                <button class="phone-ul-getCode right cursor">获取验证码</button>
+            </div>
+            <div class="phone-ul-li left">
+                <img class="phone-ul-li-img left"
+                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAASCAYAAABrXO8xAAABpUlEQVQ4T8XTQUsbURAA4JlNYn6BlB5tBRF6lPoHBCuWHnsuBnZmowfTi7RepIeKl1ICyb55IURKb+pFFBR71ZNX0ZY2f6GFQg5J9k15JYa4rNpb9/Zm3rcz82AQUp+1dsE59wYRHwIAqmo7CIKNMAzPRq/i6EFEVlT1JSKGRHTlc8aYGUS0qvqemXev7w9ho9GYcM7tA8AsEXVGf1itVseLxeJpp9N5WqlUfvncEIrIuqr+ZOZ6un1/FpFNVb1g5s9peIKIy2EYfsuC1tol59wDZt5MwyYRlbLQoOI7Vf3OzJ9uwAHAVqtVzMLdbvcoSZKlcrncHsJmsznV6/W2EPEJAPy+peq4qp4XCoW1Uqn0Fev1+lQul9sfzPfltlZ93Fo7p6q1JEleoIjsOedsFEXHd6HrXBzH80EQhB62iehRGsVx/NzHoig6SOe88fCSiKYzkqs+RkQfM3KX/wdmzmiMeeZbZOajzBmNMTuIuE1Eh//yqiKyqKqvsFarTebzeY9e34c9AoAP/X5/8e92iMhjv28A4Hevm1VZVccA4BwR3xLRjz/MdNwCnKwqQAAAAABJRU5ErkJggg=="
+                     alt="">
+                <span class="phone-ul-line left"></span>
+                <input class="phone-ul-inp left" maxlength="16" type="text" placeholder="请输入新密码">
+            </div>
+            <button class="phone-ul-btn left cursor">确认修改</button>
+        </div>
+    </div>
+</div>
+
 <!--商家认证-->
-<div class="approve" style="display: none">
+<div class="approve approve-sj" style="display: none">
     <div class="approve-box" onclick="event.stopPropagation()">
         <p class="approve-box-head left">填写审核信息</p>
         <div class="approve-box-li left">
@@ -384,6 +432,47 @@
 <script>
     $(function () {
 
+        //改修昵称事件
+        $('.con-rig-ul-nike').blur(function(){
+            alert('修改成功')
+        });
+
+        $('.con-rig-ul-btn-tx').click(function(){
+            $('.approve-img').fadeIn(150)
+        });
+        $('.phone-ul-btn').click(function(){
+            $('.approve-img').fadeOut(150)
+        });
+        $('.phone-ul-file').change(function(i){
+            var reader=new FileReader();
+            reader.onload=function(e){
+                $('.phone-ul-img').attr('src',reader.result)
+            };
+            reader.readAsDataURL(this.files[0])
+        });
+
+        $('.phone-ul-btn').click(function () {
+            $('.approve-phone').fadeOut(150)
+        });
+        $('.con-rig-ul-btnmm').click(function () {
+            $('.approve-phone').fadeIn(150)
+        });
+
+        //获取验证码
+        $('.phone-ul-getCode').click(function () {
+            $('.phone-ul-getCode').attr('disabled', 'disabled');
+            var time = 60;
+            var inter = setInterval(function () {
+                time--;
+                if (time !== 0) {
+                    $('.phone-ul-getCode').html(time + 's')
+                } else {
+                    $('.phone-ul-getCode').html('获取验证码').removeAttr('disabled');
+                    clearInterval(inter)
+                }
+            }, 1000)
+        })
+
         $('.con-left-xx-li').click(function () {
             $('.con-rig').eq($(this).index() - 1).show().siblings().hide();
             $(this).addClass('con-color').siblings().removeClass('con-color')
@@ -391,13 +480,13 @@
 
 
         $('.con-left-bot').click(function () {
-            $('.approve').fadeIn(150)
+            $('.approve-sj').fadeIn(150)
         });
         $('.approve').click(function () {
             $(this).fadeOut(150)
         });
         $('.approve-box-submit').click(function () {
-            $('.approve').fadeOut(150)
+            $('.approve-sj').fadeOut(150)
         })
 
     })
