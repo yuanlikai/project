@@ -5,16 +5,15 @@ var mysql = require('mysql')
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '1091372693',
+    password: '109137',
     database: 'world'
 });
-
 connection.connect()
 
 /* GET home page. */
 router.get('/index', function (req, res, next) {
-        connection.query('select * from city', function (err, rows, fields) {
-            res.json(rows);
+        connection.query('select * from city where id<6', function (err, rows, fields) {
+            res.json(rows)
         })
     }
 );
